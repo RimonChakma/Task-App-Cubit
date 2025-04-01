@@ -19,11 +19,32 @@ class MyApp extends StatelessWidget {
 class TaskScreen extends StatelessWidget {
   const TaskScreen({super.key});
 
+
   @override
   Widget build(BuildContext context) {
+
+    TextEditingController taskController = TextEditingController();
+
     return Scaffold(
       appBar: AppBar(title: Text("Task App"),centerTitle: true,),
-      body: Center(child: Text("task app"),),
+      body: Padding(padding: EdgeInsets.all(10),child: Column(
+        children: [
+          Row(
+            children: [
+              Expanded(child: TextField(
+                controller: taskController,
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(
+                  ),
+                  hintText: "add task"
+              ),),),
+              SizedBox(width:10,),
+              ElevatedButton(onPressed: (){}, child: Icon(Icons.check))
+            ],
+          ),
+          
+        ],
+      ),),
     );
   }
 }
