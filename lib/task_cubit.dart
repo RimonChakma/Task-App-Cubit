@@ -10,4 +10,9 @@ class TaskCubit extends Cubit<TaskState>{
       emit(TaskState(task: updatedTasks));
     }
   }
+
+  void removeTask(int index) {
+    final newTasks = List<Map<String, dynamic>>.from(state.task)..removeAt(index);
+    emit(TaskState(task: newTasks));
+  }
 }

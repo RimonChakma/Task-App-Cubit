@@ -57,6 +57,9 @@ class TaskScreen extends StatelessWidget {
                 itemBuilder: (context, index) {
                   return ListTile(
                     title: Text(state.task[index]["title"].toString()),
+                    trailing: IconButton(onPressed: (){
+                      context.read<TaskCubit>().removeTask(index);
+                    }, icon: Icon(Icons.delete)),
                   );
                 },);
             }
